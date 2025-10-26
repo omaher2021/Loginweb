@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - Application Dashboard</title>
+    <link rel="stylesheet" href="style.css"> 
+</head>
+<body>
+    <div class="login-box" id="home-box">
+        <h2>Application Home</h2>
+        <p id="welcome-message"></p>
+
+        <div class="options-menu">
+            <h3>Your Options:</h3>
+            <a href="dashboard.html" class="option-button">Go to Dashboard</a>
+            <a href="#" class="option-button">View Profile Settings</a>
+            <a href="#" class="option-button">Manage Orders</a>
+        </div>
+
+        <button class="logout-btn" onclick="logout()">Logout</button>
+    </div>
+
+    <script src="script.js"></script> <script>
+        // Check for login status and display username
+        function checkLoginAndDisplayUsername() {
+            const username = localStorage.getItem('loggedInUsername');
+            const welcomeElement = document.getElementById('welcome-message');
+
+            if (username) {
+                welcomeElement.innerHTML = `Hello, <strong>${username}</strong>! Select an option below to continue.`;
+            } else {
+                // If the user tries to access this page directly, redirect them to login
+                window.location.href = 'index.html';
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', checkLoginAndDisplayUsername);
+    </script>
+</body>
+</html>

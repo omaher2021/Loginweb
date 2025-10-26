@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="style.css"> 
+    <script src="script.js"></script> 
+</head>
+<body>
+    <div class="login-box">
+        <h2>Your Dashboard</h2>
+        <p id="welcome-message"></p>
+
+        <button id="viewProfileBtn">View User Profile</button>
+        
+        <div id="userProfile" class="profile-card hidden">
+            <h3>User Profile Information</h3>
+            <p><strong>Username:</strong> <span id="profileUsername"></span></p>
+            <p class="small-text">
+                *Note: In a real application, more detailed information (email, ID, etc.) would be loaded from a server.
+            </p>
+        </div>
+
+        <button class="logout-btn" onclick="logout()">Logout</button>
+    </div>
+
+    <script>
+        // Function to check login, display username, and set up the profile button
+        function initDashboard() {
+            const username = localStorage.getItem('loggedInUsername');
+            const welcomeElement = document.getElementById('welcome-message');
+            const profileUsernameElement = document.getElementById('profileUsername');
+            const profileBox = document.getElementById('userProfile');
+            const profileBtn = document.getElementById('viewProfileBtn');
+
+            if (username) {
+                welcomeElement.textContent = `Hello, ${username}! Click below to see your profile or go back home.`;
+                profileUsernameElement.textContent = username; // Set username in the profile card
+
+                // Event listener to toggle the profile card visibility
+                profileBtn.addEventListener('click', function() {
+                    // Toggles the 'hidden' class on the profile box
+                    profileBox.classList.toggle('hidden'); 
+                    // Update button text based on state
+                    if (profileBox.classList.contains('hidden')) {
+                        profileBtn.textContent = 'View User Profile';
+                    } else {
+                        profileBtn.textContent = 'Hide User Profile';
+                    }
+                });
+
+            } else {
+                // Redirect unauthenticated users
+                window.location.href = 'index.html'; 
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', initDashboard);
+    </script>
+</body>
+</html>

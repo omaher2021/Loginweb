@@ -1,0 +1,171 @@
+body {
+    font-family: Arial, sans-serif;
+    background: #dfe6e9; /* Light Blue-Gray Background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0; /* Important: remove default body margin */
+}
+
+.login-box {
+    background: #fff;
+    padding: 30px;
+    border-radius: 10px; /* Slightly rounder corners */
+    width: 300px;
+    /* Added a nicer box shadow */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.15); 
+    text-align: center; /* Center text within the box */
+}
+
+.login-box h2 {
+    color: #333;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+input {
+    width: calc(100% - 20px); /* Account for padding */
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    box-sizing: border-box; /* Include padding/border in element's total width/height */
+}
+
+/* Primary Button Style (Used for Login) */
+button {
+    width: 100%;
+    padding: 12px;
+    background: #0984e3; /* Primary Blue */
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background 0.3s ease; /* Smooth hover transition */
+}
+
+button:hover {
+    background: #006ebf; /* Darker blue on hover */
+}
+
+/* --- Dashboard Specific Styles --- */
+
+/* Style for the welcome message on the dashboard */
+#welcome-message {
+    margin: 20px 0;
+    font-size: 1.1em;
+    color: #555;
+    line-height: 1.4;
+}
+
+/* Style for the Logout button on the dashboard */
+/* Making the logout button visually distinct from the primary login button */
+.login-box button[onclick="logout()"] {
+    background: #e17055; /* A warm, distinct color for "leaving" */
+    margin-top: 20px;
+}
+
+.login-box button[onclick="logout()"]:hover {
+    background: #c34b35; /* Darker warm color on hover */
+}
+/* --- New Home Page Styles --- */
+
+/* Style for the options container */
+.options-menu {
+    margin-top: 25px;
+    padding-top: 15px;
+    border-top: 1px solid #eee;
+}
+
+.options-menu h3 {
+    margin-bottom: 15px;
+    color: #34495e;
+    font-size: 1.2em;
+}
+
+/* Style for the option buttons (using <a> tag for navigation) */
+.option-button {
+    display: block; /* Make it take the full width */
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    text-decoration: none; /* Remove underline */
+    background: #ecf0f1; /* Light gray background */
+    color: #2c3e50; /* Dark text */
+    border: 1px solid #bdc3c7;
+    border-radius: 5px;
+    transition: background 0.3s ease, border-color 0.3s ease;
+    box-sizing: border-box;
+}
+
+.option-button:hover {
+    background: #bdc3c7; /* Darker gray on hover */
+    border-color: #95a5a6;
+}
+
+/* Specific style for the Logout button on the home page (can reuse existing logout styles) */
+.logout-btn {
+    width: 100%;
+    margin-top: 20px;
+    padding: 12px;
+    background: #e17055; /* Warm color for leaving */
+}
+
+.logout-btn:hover {
+    background: #c34b35; 
+}
+/* --- New Profile Card Styles for Dashboard --- */
+
+/* Utility class to hide elements */
+.hidden {
+    display: none !important;
+}
+
+.profile-card {
+    text-align: left;
+    margin-top: 20px;
+    padding: 15px;
+    border: 1px solid #0984e3;
+    border-radius: 8px;
+    background: #eaf5ff; /* Very light blue background */
+    transition: all 0.5s ease;
+}
+
+.profile-card h3 {
+    color: #0984e3;
+    margin-top: 0;
+    margin-bottom: 10px;
+    border-bottom: 1px dashed #a4b0be;
+    padding-bottom: 5px;
+}
+
+.profile-card p {
+    margin: 5px 0;
+    font-size: 1em;
+}
+
+.profile-card strong {
+    color: #333;
+    font-weight: 700;
+}
+
+.small-text {
+    font-size: 0.8em;
+    color: #777;
+    margin-top: 10px;
+    border-top: 1px solid #ddd;
+    padding-top: 5px;
+}
+
+/* Style for the "View Profile" button to distinguish it from Logout */
+#viewProfileBtn {
+    background: #2ecc71; /* Green color for viewing info */
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
+
+#viewProfileBtn:hover {
+    background: #27ae60;
+}
